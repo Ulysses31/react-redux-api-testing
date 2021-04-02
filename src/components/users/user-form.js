@@ -1,23 +1,36 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { insertAPI } from '../../state/actions/api-actions';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  insertAPI,
+  updateAPI
+} from '../../state/actions/api-actions';
 import './user.css';
 
 export default function UserForm() {
   const dispatch = useDispatch();
-  const [user, setUser] = useState({
-    name: ''
-  });
+  const selectedUser = useSelector(
+    (state) => state.apiState.selectedUser
+  );
+  const [user, setUser] = useState({ id: 0, name: '' });
+
+  useEffect(() => {
+    setUser(selectedUser);
+  }, [selectedUser]);
 
   const handleChangeUser = (e) => {
     setUser({
+      id: user.id,
       name: e.target.value
     });
   };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    dispatch(insertAPI(user));
+    if (user.id === 0) {
+      dispatch(insertAPI(user));
+    } else {
+      dispatch(updateAPI(user));
+    }
   };
 
   return (

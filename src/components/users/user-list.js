@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   deleteAPI,
-  fetchAPI
+  fetchAPI,
+  setSelectedUser
 } from '../../state/actions/api-actions';
 import './user.css';
 
@@ -17,11 +18,10 @@ export default function UserList() {
   }, []);
 
   const handleEdit = (user) => {
-    console.log(user);
+    dispatch(setSelectedUser(user));
   };
 
   const handleDelete = (id) => {
-    console.log(id);
     dispatch(deleteAPI(id));
   };
 
