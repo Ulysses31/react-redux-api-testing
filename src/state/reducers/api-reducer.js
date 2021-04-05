@@ -18,7 +18,7 @@ export default function apiReducer(
 ) {
   switch (action.type) {
     case FETCH_API:
-      console.log('apiReducer', state, action);
+      // console.log('apiReducer', state, action);
       return {
         ...state,
         users: action.payload,
@@ -28,7 +28,7 @@ export default function apiReducer(
         }
       };
     case INSERT_API:
-      console.log('apiReducer', state, action);
+      // console.log('apiReducer', state, action);
       return {
         ...state,
         users: [...state.users, action.payload],
@@ -38,7 +38,7 @@ export default function apiReducer(
         }
       };
     case DELETE_API:
-      console.log('apiReducer', state, action);
+      // console.log('apiReducer', state, action);
       return {
         ...state,
         users: state.users.filter(
@@ -50,7 +50,7 @@ export default function apiReducer(
         }
       };
     case UPDATE_API:
-      console.log('apiReducer', state, action);
+      // console.log('apiReducer', state, action);
       return {
         ...state,
         users: state.users.map((user) => {
@@ -66,7 +66,7 @@ export default function apiReducer(
         }
       };
     case SELECTED_USER:
-      console.log('apiReducer', state, action);
+      // console.log('apiReducer', state, action);
       return {
         ...state,
         selectedUser: action.payload

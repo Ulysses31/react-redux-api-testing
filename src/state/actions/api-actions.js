@@ -19,7 +19,7 @@ export function fetchAPI() {
     return axios
       .get(apiUrl)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         dispatch({
           type: FETCH_API,
           payload: response.data
@@ -34,7 +34,7 @@ export function insertAPI(user) {
     return axios
       .post(apiUrl, user, options)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         dispatch({
           type: INSERT_API,
           payload: response.data
@@ -49,7 +49,7 @@ export function deleteAPI(id) {
     return axios
       .delete(`${apiUrl}/${id}`)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         dispatch({
           type: DELETE_API,
           payload: id
@@ -64,7 +64,7 @@ export function updateAPI(user) {
     return axios
       .put(`${apiUrl}/${user.id}`, user, options)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         dispatch({
           type: UPDATE_API,
           payload: user
